@@ -31,7 +31,7 @@ function ClassMods.updateIncomingHeals()
 	if ClassMods.db.profile.healthbar.incomingheals then
 		newPrediction1 = UnitGetIncomingHeals("player")
 		ClassMods.F.HealthBar.IncomingHeals:SetStatusBarColor(barColor1[1], barColor1[2], barColor1[3], 1)
-		if (newPrediction1 ~= 0) and (not UnitIsDeadOrGhost("player") ) then
+		if (newPrediction1) and (newPrediction1 ~= 0) and (not UnitIsDeadOrGhost("player") ) then
 			if (health + newPrediction1) > maxHealth then
 				ClassMods.F.HealthBar.IncomingHeals:SetSize( ((ClassMods.F.HealthBar:GetWidth() / maxHealth) * (maxHealth - health)), ClassMods.F.HealthBar:GetHeight() )
 			else
