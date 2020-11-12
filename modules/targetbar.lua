@@ -283,7 +283,6 @@ function ClassMods.SetupTargetBar()
 		-- Register Events to support the bar
 		ClassMods.F.TargetBar:RegisterEvent("PLAYER_TARGET_CHANGED")
 		ClassMods.F.TargetBar:RegisterUnitEvent("UNIT_MAXHEALTH", "target")
-		ClassMods.F.TargetBar:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", "target")
 		ClassMods.F.TargetBar:RegisterUnitEvent("UNIT_ABSORB_AMOUNT_CHANGED", "target")
 		ClassMods.F.TargetBar:SetScript("OnEvent",
 			function(self, event, ...)
@@ -291,9 +290,6 @@ function ClassMods.SetupTargetBar()
 
 				if (event == "UNIT_MAXHEALTH") then
 					self:SetMinMaxValues(0, UnitHealthMax("target"))
-				elseif (event == "UNIT_HEALTH_FREQUENT") then
-					ClassMods.updateIncomingHealsTarget()
-					ClassMods.updateAbsorbsTarget()
 				elseif (event == "UNIT_ABSORB_AMOUNT_CHANGED") and (ClassMods.db.profile.targetbar.incomingheals) then
 					ClassMods.updateAbsorbsTarget()
 				elseif (event == "PLAYER_TARGET_CHANGED") then
