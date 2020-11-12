@@ -321,7 +321,7 @@ function ClassMods.SetupAltResourceBar()
 				if self.updateTimer < ALTRESOURCEBAR_UPDATEINTERVAL then return else self.updateTimer = 0 end
 
 				if (select(2, UnitClass("player")) == "MONK") and ClassMods.F.AltResourceBar.Stagger then
-					local stagger = UnitStagger("player")
+					local stagger = UnitStagger("player") or 0
 					ClassMods.F.AltResourceBar.Stagger:SetValue(stagger)
 					ClassMods.F.AltResourceBar.value:SetText(ClassMods.AbbreviateNumber(stagger))
 					local maxStagger = UnitHealthMax("player")
