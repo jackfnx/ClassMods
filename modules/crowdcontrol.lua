@@ -177,25 +177,25 @@ function ClassMods.SetupCrowdControl(lockName)
 	ClassMods.F.CrowdControl.ccFrame[1]:SetScript("OnEvent",
 		function(s, event)
 			s._, s._subEvent, s._, s._sourceGUID, s._, s._sourceFlags, s._, s._destGUID, s._, s._destFlags, s._, s._spellId = CombatLogGetCurrentEventInfo()
-			if (s._subEvent == "SPELL_AURA_APPLIED") then
-				for index,value in ipairs(ClassMods.db.profile.crowdcontrol.spells) do
-					if ((ClassMods.db.profile.crowdcontrol.spells[index][2] == true) and (s._spellId == ClassMods.db.profile.crowdcontrol.spells[index][3])) and (((s._sourceGUID == UnitGUID("player")) or (bit.band(s._sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) == 1))) then
-						addCCTimer(ClassMods.db.profile.crowdcontrol.spells[index][1], s._destGUID, ClassMods.db.profile.crowdcontrol.spells[index][4])
-					end
-				end
-			elseif (s._subEvent == "SPELL_AURA_REFRESH") then
-				for index,value in ipairs(ClassMods.db.profile.crowdcontrol.spells) do
-					if ((ClassMods.db.profile.crowdcontrol.spells[index][2] == true) and (s._spellId == ClassMods.db.profile.crowdcontrol.spells[index][3])) and (((s._sourceGUID == UnitGUID("player")) or (bit.band(s._sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) == 1))) then
-						refreshCCTimer(ClassMods.db.profile.crowdcontrol.spells[index][1], s._destGUID, ClassMods.db.profile.crowdcontrol.spells[index][4])
-					end
-				end
-			elseif (s._subEvent == "SPELL_AURA_REMOVED") then
-				for index,value in ipairs(ClassMods.db.profile.crowdcontrol.spells) do
-					if ((ClassMods.db.profile.crowdcontrol.spells[index][2] == true) and (s._spellId == ClassMods.db.profile.crowdcontrol.spells[index][3])) and (((s._sourceGUID == UnitGUID("player")) or (bit.band(s._sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) == 1))) then
-						stopCCTimer(ClassMods.db.profile.crowdcontrol.spells[index][1], s._destGUID, ClassMods.db.profile.crowdcontrol.spells[index][4])
-					end
-				end
-			end
+			-- if (s._subEvent == "SPELL_AURA_APPLIED") then
+			-- 	for index,value in ipairs(ClassMods.db.profile.crowdcontrol.spells) do
+			-- 		if ((ClassMods.db.profile.crowdcontrol.spells[index][2] == true) and (s._spellId == ClassMods.db.profile.crowdcontrol.spells[index][3])) and (((s._sourceGUID == UnitGUID("player")) or (bit.band(s._sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) == 1))) then
+			-- 			addCCTimer(ClassMods.db.profile.crowdcontrol.spells[index][1], s._destGUID, ClassMods.db.profile.crowdcontrol.spells[index][4])
+			-- 		end
+			-- 	end
+			-- elseif (s._subEvent == "SPELL_AURA_REFRESH") then
+			-- 	for index,value in ipairs(ClassMods.db.profile.crowdcontrol.spells) do
+			-- 		if ((ClassMods.db.profile.crowdcontrol.spells[index][2] == true) and (s._spellId == ClassMods.db.profile.crowdcontrol.spells[index][3])) and (((s._sourceGUID == UnitGUID("player")) or (bit.band(s._sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) == 1))) then
+			-- 			refreshCCTimer(ClassMods.db.profile.crowdcontrol.spells[index][1], s._destGUID, ClassMods.db.profile.crowdcontrol.spells[index][4])
+			-- 		end
+			-- 	end
+			-- elseif (s._subEvent == "SPELL_AURA_REMOVED") then
+			-- 	for index,value in ipairs(ClassMods.db.profile.crowdcontrol.spells) do
+			-- 		if ((ClassMods.db.profile.crowdcontrol.spells[index][2] == true) and (s._spellId == ClassMods.db.profile.crowdcontrol.spells[index][3])) and (((s._sourceGUID == UnitGUID("player")) or (bit.band(s._sourceFlags, COMBATLOG_OBJECT_AFFILIATION_MINE) == 1))) then
+			-- 			stopCCTimer(ClassMods.db.profile.crowdcontrol.spells[index][1], s._destGUID, ClassMods.db.profile.crowdcontrol.spells[index][4])
+			-- 		end
+			-- 	end
+			-- end
 		end)
 	ClassMods.F.CrowdControl:Show()
 end
