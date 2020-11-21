@@ -276,15 +276,15 @@ ClassMods.pethealthtexture = select(3, GetSpellInfo(136)) -- Mend Pet
 ClassMods.alertDefaults = {
 	-- ["Player Health Alert"]	= { enabled = true, alerttype = "HEALTH", enablesound = true, sound = "Raid Warning", aura = "", target = "player", sparkles = true, healthpercent = 0.3 },
 	-- ["Pet Health Alert"] 		= { enabled = true, alerttype = "PETHEALTH", enablesound = true, sound = "Raid Warning", aura = "", target = "pet", sparkles = true, healthpercent = 0.3 },
-	[select(1, GetSpellInfo(194594))] = { -- Lock and Load
-		enabled = true,
-		alerttype = "BUFF",
-		enablesound = true,
-		sound = "Ding",
-		aura = 194594,
-		target = "player",
-		sparkles = true,
-	},
+	-- [select(1, GetSpellInfo(194594))] = { -- Lock and Load
+	-- 	enabled = true,
+	-- 	alerttype = "BUFF",
+	-- 	enablesound = true,
+	-- 	sound = "Ding",
+	-- 	aura = 194594,
+	-- 	target = "player",
+	-- 	sparkles = true,
+	-- },
 	--[[
 	[select(1, GetSpellInfo(223138))] = { -- Marking Targets
 		enabled = true,
