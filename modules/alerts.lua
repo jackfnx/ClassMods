@@ -339,7 +339,7 @@ function ClassMods.SetupAlerts()
 						if (self._name) then -- Now it's active!
 							self.active = true
 							if self.soundFile and ClassMods.db.profile.enableaudio then
-								PlaySoundFile(ClassMods.GetActiveSoundFile(self.soundFile), ClassMods.db.profile.masteraudio and "Master" or nil)
+								-- PlaySoundFile(ClassMods.GetActiveSoundFile(self.soundFile), ClassMods.db.profile.masteraudio and "Master" or nil)
 							end
 							self.Icon:SetTexture(self._texture)
 							self.Icon:Show()
